@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Stepper Wrapper</title>
+    <script src="./_assets/head.ts"></script>
+  </head>
+  <body>
+    <calcite-button onclick="addItem()"></calcite-button>
+    <script>
+      const addItem = () => {
+        const newItem = document.createElement("calcite-stepper-item");
+        const newNotice = document.createElement("calcite-notice");
+        newNotice.open = true;
+        newNotice.width = "full";
+        newItem.append(newNotice);
+        newItem.heading = "New";
+        document.querySelector("#thiswrapper").append(newItem);
+      };
+    </script>
+    <calcite-stepper-wrapper id="thiswrapper">
+      <calcite-stepper-item heading="Choose method" complete>
+        <calcite-notice open width="full">
+          <div slot="message">Step 1 Content Goes Here</div>
+        </calcite-notice>
+      </calcite-stepper-item>
+      <calcite-stepper-item heading="Compile member list" complete>
+        <calcite-notice open width="full">
+          <div slot="message">Step 2 Content Goes Here</div>
+        </calcite-notice>
+      </calcite-stepper-item>
+      <calcite-stepper-item heading="Set member properties" description="Some subtext" error>
+        <calcite-notice open width="full">
+          <div slot="message">Step 3 Content Goes Here</div>
+        </calcite-notice>
+      </calcite-stepper-item>
+      <calcite-stepper-item heading="Confirm and complete">
+        <calcite-notice open width="full">
+          <div slot="message">Step 4 Content Goes Here</div>
+        </calcite-notice>
+      </calcite-stepper-item>
+    </calcite-stepper-wrapper>
+  </body>
+</html>
